@@ -42,7 +42,9 @@ Other notes
 
 ## Setup
 
-The L431CCU6.json needs to be placed here: {$USER}\.platformio\platforms\ststm32\boards
-The L431C(B-C)(T-U) folder needs placing in {$USER}\.platformio\packages\framework-arduinoststm32\variants\STM32L4xx
+1. Install VSCode
+2. Install the platformIO extension
+3. Clone this repository
+4. Press build!
 
 
