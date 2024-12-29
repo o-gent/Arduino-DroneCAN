@@ -4,6 +4,58 @@ This repository allows easy integration of sensors to be used with Ardupilot and
 
 By using the Arduino core and PlatformIO with pre-configured board setups, you can start developing instantly.
 
+## Usage
+
+Minimal boilerplate code needed, you can add you sensor messages easily!
+
+```cpp
+#include <Arduino.h>
+#include <dronecan.h>
+
+static bool shouldAcceptTransfer(const CanardInstance *ins,
+                                 uint64_t *out_data_type_signature,
+                                 uint16_t data_type_id,
+                                 CanardTransferType transfer_type,
+                                 uint8_t source_node_id);
+static void onTransferReceived(CanardInstance *ins, CanardRxTransfer *transfer);
+
+DroneCAN dronecan;
+
+void setup()
+{
+    // Do your usual Arduino sensor initialisation here
+    dronecan.init(onTransferReceived, shouldAcceptTransfer);
+}
+
+void loop()
+{
+    // Read your sensor data, and compose dronecan messages here
+    dronecan.cycle();
+}
+
+void onTransferReceived(CanardInstance *ins, CanardRxTransfer *transfer)
+{
+    // describes what to do with received DroneCAN messages
+}
+
+bool shouldAcceptTransfer(const CanardInstance *ins,
+                          uint64_t *out_data_type_signature,
+                          uint16_t data_type_id,
+                          CanardTransferType transfer_type,
+                          uint8_t source_node_id)
+{
+    // can be used to filter what is passed to onTransferReceived
+}
+```
+
+
+## Features
+- Send DroneCAN messages ✅
+- Receive DroneCAN messages ✅
+- Send NodeStatus ✅
+- Respond to NodeInfo ✅
+- Reboot on reboot request ✅
+
 ## Currently Supported Hardware
 One of the sticking points is writing the CAN driver, as for STM32 there is not an Arduino compatible interface. We plan to get around this by supporting the MCP2515 which has well supported Arduino drivers.
 
