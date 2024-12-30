@@ -22,13 +22,11 @@ This isn't intended to be used in the same way as AP_Periph, which supports tons
 
 ## Currently Supported Hardware
 
-One of the sticking points is writing the CAN driver, as for STM32 there is not an Arduino compatible interface. We plan to get around this by supporting the MCP2515 which has well supported Arduino drivers.
+This repository is plug and play with the Beyond Robotix CAN node series!
 
-- Beyond Robotics CAN Node >> plug and play
+See [Beyond Robotix Can Node](https://www.beyondrobotix.com/)
 
-Planned hardware:
-- Common MCUs such as RP2040, ESP32, combined with the MCP2515
-- STM32 H7, a FDCAN driver needs writing
+<img src="./assets/BR_CAN_NODE.png" width="50%">
 
 
 ## Usage
