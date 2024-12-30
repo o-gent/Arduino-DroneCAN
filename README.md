@@ -75,6 +75,12 @@ bool shouldAcceptTransfer(const CanardInstance *ins,
 }
 ```
 
+## Support
+
+If you get stuck with this repository, the discussions section will allow people to help out.
+
+For dedicated engineering support on your application, contact [admin@beyondrobotix.com](admin@beyondrobotix.com).
+
 
 ## Repository structure
 
