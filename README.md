@@ -8,6 +8,8 @@ This isn't intended to be used in the same way as AP_Periph, which supports tons
 
 ## Features
 
+API changes can happen at any time in master. See the releases page to download a specific verison for your project. Once we've solved firmware updates over CAN we'll release a V1 version!
+
 - Send DroneCAN messages ✅
 - Receive DroneCAN messages ✅
 - Send NodeStatus ✅
@@ -15,7 +17,7 @@ This isn't intended to be used in the same way as AP_Periph, which supports tons
 - Reboot on reboot request ✅
 - Dynamic Node Allocation ✅
 - DroneCAN Parameters ✅
-- Firmware update over CAN 🔨 (need a bootloader system... we should be able to write one using the library itself)
+- Firmware update over CAN 🔨 (need a bootloader system...)
 - FreeRTOS examples 🔨
 - Example project set 🔨
 
@@ -26,10 +28,20 @@ This repository is plug and play with the Beyond Robotix CAN node series!
 
 See [Beyond Robotix Can Node](https://www.beyondrobotix.com/)
 
+Docs for the node hardware [CAN node gitbook](https://beyond-robotix.gitbook.io/docs/can-node-system)
+
 <img src="./assets/BR_CAN_NODE.png" width="50%">
 
+To get started:
+1. Install VScode
+2. Install the PlatformIO extension
+3. Clone/Download this repository
+4. Plug in the CAN node via USB or STLINK
+5. Click the upload button!
+6. The CAN Node will report a simulated battery CAN message to any Ardupilot/PX4/DroneCAN usb !
+7. Create your custom CAN application using Arduino libraries.. 
 
-## Usage
+## Code Usage
 
 Minimal boilerplate code needed, you can add you sensor messages easily!
 
@@ -90,7 +102,7 @@ For dedicated engineering support on your application, contact [admin@beyondrobo
 
 ## Repository structure
 
-This repository is designed to be cloned and run straight away using the example application in ./src/main.cpp
+This repository is designed to be cloned and run straight away using the example application in ./src/main.cpp.
 
 All 3 of the following libraries are required:
 
