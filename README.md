@@ -13,9 +13,9 @@ This isn't intended to be used in the same way as AP_Periph, which supports tons
 - Send NodeStatus ✅
 - Respond to NodeInfo ✅
 - Reboot on reboot request ✅
-- Dynamic Node Allocation ✅ (handshake is slightly limited but works)
+- Dynamic Node Allocation ✅
 - DroneCAN Parameters ✅
-- Firmware update over CAN 🔨
+- Firmware update over CAN 🔨 (need a bootloader system... we should be able to write one using the library itself)
 - FreeRTOS examples 🔨
 - Example project set 🔨
 
@@ -39,45 +39,51 @@ See src/main.cpp for a full example, which reads in the built in STM32 MCU tempe
 #include <Arduino.h>
 #include <dronecan.h>
 
+DroneCAN dronecan;
+
+/*
+This function is called when we receive a CAN message, and it's accepted by the shouldAcceptTransfer function.
+We need to do boiler plate code in here to handle parameter updates and so on, but you can also write code to interact with sent messages here.
+*/
+static void onTransferReceived(CanardInstance *ins, CanardRxTransfer *transfer)
+{
+
+    DroneCANonTransferReceived(dronecan, ins, transfer);
+}
+
+/*
+For this function, we have to sign the signaure of any messages we want to recieve. We do the boilerplate handling for parameters etc. See main.cpp for an example on how to handle this.
+ */
 static bool shouldAcceptTransfer(const CanardInstance *ins,
                                  uint64_t *out_data_type_signature,
                                  uint16_t data_type_id,
                                  CanardTransferType transfer_type,
-                                 uint8_t source_node_id);
-static void onTransferReceived(CanardInstance *ins, CanardRxTransfer *transfer);
+                                 uint8_t source_node_id)
 
-DroneCAN dronecan;
+{
+    
+    return false || DroneCANshoudlAcceptTransfer(ins, out_data_type_signature, data_type_id, transfer_type, source_node_id);
+}
+
 
 void setup()
 {
     // Do your usual Arduino sensor initialisation here
+    
     dronecan.init(onTransferReceived, shouldAcceptTransfer);
 }
 
 void loop()
 {
     // Read your sensor data, and compose dronecan messages here
+
     dronecan.cycle();
-}
-
-void onTransferReceived(CanardInstance *ins, CanardRxTransfer *transfer)
-{
-    // describes what to do with received DroneCAN messages
-}
-
-bool shouldAcceptTransfer(const CanardInstance *ins,
-                          uint64_t *out_data_type_signature,
-                          uint16_t data_type_id,
-                          CanardTransferType transfer_type,
-                          uint8_t source_node_id)
-{
-    // can be used to filter what is passed to onTransferReceived
 }
 ```
 
 ## Support
 
-If you get stuck with this repository, the discussions section will allow people to help out.
+If you get stuck with this repository, the discussions section will allow us to help out.
 
 For dedicated engineering support on your application, contact [admin@beyondrobotix.com](admin@beyondrobotix.com).
 
