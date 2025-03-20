@@ -23,13 +23,13 @@ static void onTransferReceived(CanardInstance *ins, CanardRxTransfer *transfer)
     {
         uavcan_equipment_ahrs_MagneticFieldStrength pkt{};
         uavcan_equipment_ahrs_MagneticFieldStrength_decode(transfer, &pkt);
-        Serial.print(pkt.magnetic_field_ga[0], 4);
-        Serial.print(" ");
-        Serial.print(pkt.magnetic_field_ga[1], 4);
-        Serial.print(" ");
-        Serial.print(pkt.magnetic_field_ga[2], 4);
-        Serial.print(" ");
-        Serial.println();
+        // Serial.print(pkt.magnetic_field_ga[0], 4);
+        // Serial.print(" ");
+        // Serial.print(pkt.magnetic_field_ga[1], 4);
+        // Serial.print(" ");
+        // Serial.print(pkt.magnetic_field_ga[2], 4);
+        // Serial.print(" ");
+        // Serial.println();
         break;
     }
     }
