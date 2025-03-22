@@ -36,6 +36,10 @@ To get started:
 1. Install VScode
 2. Install the PlatformIO extension
 3. Clone/Download this repository
+* if you clone the repo, then ensure to 
+```
+git clone --recurse-submodules https://github.com/BeyondRobotix/Arduino-DroneCAN.git
+```
 4. Plug in the CAN node via USB or STLINK
 5. Click the upload button!
 6. The CAN Node will report a simulated battery CAN message to any Ardupilot/PX4/DroneCAN usb !
