@@ -27,10 +27,11 @@ API changes can happen at any time in master. See the releases page to download 
 This repository is plug and play with the Beyond Robotix CAN node series!
 
 See [Beyond Robotix Can Node](https://www.beyondrobotix.com/)
+<img src="./assets/BRlogo.png" width="80%">
+<img src="./assets/node-and-carrier.png" width="80%">
 
-Docs for the node hardware [CAN node gitbook](https://beyond-robotix.gitbook.io/docs/can-node-system)
+We've got some handy docs for the node hardware and some more software explaination and examples here [CAN node gitbook](https://beyond-robotix.gitbook.io/docs/can-node-system)
 
-<img src="./assets/BR_CAN_NODE.png" width="50%">
 
 To get started:
 1. Install VScode
@@ -101,7 +102,7 @@ void loop()
 
 If you get stuck with this repository, the discussions section will allow us to help out.
 
-For dedicated engineering support on your application, contact [admin@beyondrobotix.com](admin@beyondrobotix.com).
+For dedicated engineering support on your application, contact [admin@beyondrobotix.com](admin@beyondrobotix.com). We can also quote for writing custom firmware for you!
 
 
 ## Repository structure
@@ -144,14 +145,6 @@ Other stuff which didn't get used but interesting
 Other notes
 - No CAN API support in STM32 Arduino https://github.com/stm32duino/Arduino_Core_STM32/issues/259
 - The HAL drivers are generated for L431 but not working https://community.st.com/t5/stm32cubemx-mcus/the-stm32cubeide-does-not-generate-the-stm32h7xx-hal-driver-file/td-p/101970
-
-
-## Setup
-
-1. Install VSCode
-2. Install the platformIO extension
-3. Clone this repository
-4. Press build!
 
 
 ## Dronecan DSDLC
